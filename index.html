@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TK-PROCESSOR // SWISS</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="min-h-screen flex flex-col items-center py-12 px-4 selection:bg-white selection:text-black">
+    <div class="w-full max-w-4xl flex flex-col gap-12">
+      <!-- Header -->
+      <header class="flex flex-col gap-2 border-b border-border pb-6">
+        <div class="flex items-center justify-between">
+          <h1 class="text-3xl font-bold tracking-widest uppercase">TK-Processor</h1>
+          <span class="text-xs uppercase tracking-widest text-secondary font-mono">v1.0 / BLK</span>
+        </div>
+        <p class="text-sm text-secondary tracking-wide uppercase">Bulk URL Extractor & Downloader</p>
+      </header>
+
+      <!-- Main Input Section -->
+      <main class="flex flex-col gap-8">
+        <section class="flex flex-col gap-4">
+          <div class="flex justify-between items-end">
+            <label for="url-input" class="text-xs font-semibold tracking-widest uppercase text-secondary">
+              Paste URLs below (Max 10)
+            </label>
+            <span id="url-count" class="text-xs font-mono text-secondary">0 / 10 FOUND</span>
+          </div>
+          <textarea 
+            id="url-input" 
+            class="input-textarea"
+            placeholder="Paste your messy text containing tiktok.com links here... Spaces and commas will be ignored."
+            spellcheck="false"
+          ></textarea>
+          
+          <div class="flex gap-4 items-center justify-between mt-2">
+            <div id="status-message" class="text-xs font-mono text-secondary h-4">WAITING FOR INPUT...</div>
+            <div class="flex gap-4">
+              <button id="clear-btn" class="btn-outline">Clear</button>
+              <button id="process-btn" class="btn-primary">Process URLs</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Queue Section -->
+        <section id="queue-section" class="flex flex-col gap-6 hidden">
+          <div class="flex justify-between items-center border-b border-border pb-4">
+            <h2 class="text-sm font-semibold tracking-widest uppercase">Processing Queue</h2>
+            <button id="download-all-btn" class="btn-primary hidden bg-white text-black hover:bg-gray-200">
+              Download All (<span id="download-count">0</span>)
+            </button>
+          </div>
+          
+          <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Video cards will be injected here -->
+          </div>
+        </section>
+      </main>
+      
+      <footer class="mt-auto border-t border-border pt-6 text-center">
+        <p class="text-[10px] text-secondary tracking-widest uppercase font-mono">Powered by tikwm.com api // Download responsibly</p>
+      </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

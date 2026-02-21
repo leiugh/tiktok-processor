@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-sans antialiased selection:bg-primary selection:text-background;
+  }
+}
+
+@layer components {
+  /* Swiss aesthetic components */
+  .btn-primary {
+    @apply bg-primary text-background px-6 py-3 font-semibold uppercase tracking-widest text-xs transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 border border-primary;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-primary border border-border px-4 py-2 font-medium uppercase tracking-wider text-xs transition-colors duration-200 hover:bg-surface hover:border-secondary active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-textarea {
+    @apply w-full bg-surface border border-border rounded-none p-4 text-primary focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors duration-200 placeholder:text-secondary/50 font-mono text-sm resize-y min-h-[160px];
+  }
+
+  .card {
+    @apply bg-surface border border-border p-4 transition-all duration-300 hover:border-secondary flex flex-col gap-4;
+  }
+}
+
+/* Custom Scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.background');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.border');
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.secondary');
+}
